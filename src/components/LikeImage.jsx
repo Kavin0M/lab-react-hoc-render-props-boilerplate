@@ -1,16 +1,14 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
+import withCounter from "../components/withCounter"
 
-export default function LikeImage() {
 
-  const [likeImageCounter, setLikeImageCounter] = useState(0);
-
-  const handleLikeImageCount = ()=>{
-    setLikeImageCounter(likeImageCounter+1);
+export class LikeImage extends Component {
+  render() {
+    const {count,increment} = this.props
+    return (
+      <button onClick={increment}>Like image {count}</button>
+    )
   }
-
-  return (
-    <div>
-      <button onClick={handleLikeImageCount}>Like Image {likeImageCounter}</button>
-    </div>
-  )
 }
+
+export default withCounter(LikeImage)
